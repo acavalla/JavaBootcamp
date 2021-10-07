@@ -1,29 +1,37 @@
-/**
- * @author Omar Bashir
+/*
+  @author Omar Bashir
  */
 package bootcamp.kata.data;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Results {
-    private final BigDecimal sum = new BigDecimal(0); // TODO use constructor initialisation
-    private final BigDecimal difference = new BigDecimal(0); // TODO use constructor initialisation
-    private final BigDecimal product = new BigDecimal(0); // TODO use constructor initialisation
-    private final BigDecimal quotient = new BigDecimal(0); // TODO use constructor initialisation
+    private BigDecimal sum;
+    private BigDecimal difference;
+    private BigDecimal product;
+    private BigDecimal quotient;
+
+    public Results (Params params) {
+        this.difference = params.getX().subtract(params.getY());
+        this.product = params.getX().multiply(params.getY());
+        this.sum = params.getX().add(params.getY());
+        this.quotient = params.getX().divide(params.getY());
+    }
 
     public final BigDecimal getSum() {
-        return null; // FIXME
+        return sum;
     }
 
     public final BigDecimal getDifference() {
-        return null; // FIXME
+        return difference;
     }
 
     public final BigDecimal getProduct() {
-        return null; // FIXME
+        return product;
     }
 
     public final BigDecimal getQuotient() {
-        return null; // FIXME
+        return quotient;
     }
 }
