@@ -8,20 +8,34 @@ import java.math.RoundingMode;
 
 public class Calculator {
     public BigDecimal calculate(final Params params) throws IllegalArgumentException {
-//            if(params.getOperator().equals("+")) {
-//                return params.getX().add(params.getY(), new MathContext(1, RoundingMode.FLOOR));
-//            }
-        switch(params.getOperator()) {
+        switch (params.getOperator()) {
             case "+":
-                return params.getX().add(params.getY(), new MathContext(1, RoundingMode.FLOOR));
+                return this.Add(params);
             case "-":
-                return params.getX().subtract(params.getY(), new MathContext(1, RoundingMode.FLOOR));
+                return this.Subtract(params);
             case "x":
-                return params.getX().multiply(params.getY(), new MathContext(2, RoundingMode.UNNECESSARY));
+                return this.Multiply(params);
             case "/":
-                return params.getX().divide(params.getY(), new MathContext(2, RoundingMode.UNNECESSARY));
+                return this.Divide(params);
             default:
                 throw new IllegalArgumentException();
         }
     }
+
+    public BigDecimal Add(Params params) {
+        return params.getX().add(params.getY(), new MathContext(1, RoundingMode.FLOOR));
+    }
+
+    public BigDecimal Subtract(Params params) {
+        return params.getX().subtract(params.getY(), new MathContext(1, RoundingMode.FLOOR));
+    }
+
+    public BigDecimal Multiply(Params params) {
+        return params.getX().multiply(params.getY(), new MathContext(2, RoundingMode.UNNECESSARY));
+    }
+
+    public BigDecimal Divide(Params params) {
+        return params.getX().divide(params.getY(), new MathContext(2, RoundingMode.UNNECESSARY));
+    }
+
 }
