@@ -31,7 +31,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldMutiplyTwoParams() {
+    public void shouldMultiplyTwoParams() {
         final Params params = new Params(new BigDecimal(2.25),
                 new BigDecimal(2),
                 "x");
